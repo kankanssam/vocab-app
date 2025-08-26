@@ -257,6 +257,7 @@ reliable,신뢰할 수 있는,B1,adjective"></textarea>
         <button id="retryWrong" class="good">오답만 재시험</button>
         <button id="reviewWrong" class="primary">누적 오답 훈련</button>
         <button id="restart">다시 풀기(같은 설정)</button>
+        <button id="newSet">새로운 문제 세트 시작</button>
       </div>
     </div>
   </section>
@@ -375,6 +376,7 @@ reliable,신뢰할 수 있는,B1,adjective"></textarea>
   const retryWrong = document.getElementById('retryWrong');
   const reviewWrong = document.getElementById('reviewWrong');
   const restart = document.getElementById('restart');
+  const newSet = document.getElementById('newSet');
 
   // Scores elements
   const scoreBody = document.getElementById('scoreBody');
@@ -792,6 +794,15 @@ reliable,신뢰할 수 있는,B1,adjective"></textarea>
 
   // 같은 설정으로 다시
   restart.addEventListener('click', ()=> beginQuiz());
+
+  // 새로운 문제 세트
+  newSet.addEventListener('click', () => {
+    activateTab('teacher');
+    quizIntro.style.display = 'block';
+    quizArea.style.display = 'none';
+    resultArea.style.display = 'none';
+    setStatus('교사 탭에서 새로운 퀴즈를 설정하세요.');
+  });
 
   function makeQuizFromPool(pool){
     const type = currentQuiz.type;
